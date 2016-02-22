@@ -1,13 +1,10 @@
 @HappeningsDisplay = React.createClass
   getInitialState: ->
-    happeningKey: @props.key
+    happenings: @props.happenings.feed.happenings
 
   render: ->
-    console.log @state
-    console.log @props
-
     `(
       <div>
-        Hiya
+        hiya
       </div>
     )`
