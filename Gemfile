@@ -8,7 +8,6 @@ gem 'jquery-rails'
 gem 'pg', '~> 0.15'
 gem 'react-rails', '~> 1.6.0'
 gem 'sass-rails', '~> 5.0'
-gem 'turbolinks'
 gem 'uglifier', '>= 1.3.0'
 
 group :development, :test do
