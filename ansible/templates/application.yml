@@ -1,0 +1,5 @@
+# STRIPE_SECRET_KEY: {{ stripe_secret_key }}
+# STRIPE_PUBLIC_KEY: {{ stripe_public_key }}
+# AWS_ACCESS_KEY_ID: {{ aws_access_key_id }}
+# AWS_SECRET_ACCESS_KEY: {{ aws_secret_access_key }}
+# S3_BUCKET: {{ s3_bucket }}

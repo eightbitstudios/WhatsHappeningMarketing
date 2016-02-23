@@ -1,0 +1,26 @@
+*) Create passwords: # openssl passwd -salt <salt> -1 <plaintext>
+
+*) SSH in as root and : # sudo apt-get update
+
+*) Swap Space for Digital Ocean
+
+# https://www.digitalocean.com/community/articles/how-to-add-swap-on-ubuntu-12-04
+
+sudo dd if=/dev/zero of=/swapfile bs=1024 count=256k
+sudo mkswap /swapfile
+sudo swapon /swapfile
+echo "/swapfile       none    swap    sw      0       0" >> /etc/fstab
+echo 10 | sudo tee /proc/sys/vm/swappiness
+echo vm.swappiness = 10 | sudo tee -a /etc/sysctl.conf
+sudo chown root:root /swapfile
+sudo chmod 0600 /swapfile
+
+*) Locally from ansible dir # ansible-playbook -i production playbook.yml
+
+*) power cycle droplet
+
+*) Set postgres conf file to trust
+
+*) restart postgresql
+
+*) deploy
