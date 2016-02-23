@@ -109,7 +109,7 @@
     if @state.showHapInfo == true
       `(
         <div>
-          <p>http://hap.tv</p>
+          <p>http://haps.tv</p>
           <p>{feed.join_key}</p>
         </div>
       )`
