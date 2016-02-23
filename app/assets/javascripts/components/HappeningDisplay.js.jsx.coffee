@@ -38,6 +38,8 @@
 
       `(
         <div>
+          <button type="submit" className="btn btn-default" onClick={this.props.reset}>Reset</button>
+
           <div>
             <a onClick={this._toggleSettings}>Settings</a>
             {settingsDisplay}
