@@ -7,6 +7,8 @@
     showUserInfo: false
     showHapInfo: false
 
+    showSettings: false
+
   componentWillMount: ->
     @_loadHappenings()
 
@@ -30,11 +32,17 @@
   render: ->
     if @state.feed != null
       feed = @state.feed
+      settingsDisplay = @_settingsDisplay()
       happeningInfo = @_happeningInfo()
       imageDisplay = @_imageDisplay()
 
       `(
         <div>
+          <div>
+            <a onClick={this._toggleSettings}>Settings</a>
+            {settingsDisplay}
+          </div>
+
           <h1>{feed.title}</h1>
 
           {happeningInfo}
@@ -62,6 +70,36 @@
         </div>
       )`
 
+  _toggleSettings: ->
+    @setState showSettings: !@state.showSettings
+
+  _settingsDisplay: ->
+    if @state.showSettings == true
+      `(
+        <div>
+          <ul>
+            <li>
+              <a onClick={this._toggleSetting.bind(this, "showCaptions")}>Show Captions</a>
+            </li>
+            <li>
+              <a onClick={this._toggleSetting.bind(this, "showUserInfo")}>Show User Info</a>
+            </li>
+            <li>
+              <a onClick={this._toggleSetting.bind(this, "showHapInfo")}>Show Happening Join Code</a>
+            </li>
+          </ul>
+        </div>
+      )`
+
+  _toggleSetting: (setting, event) ->
+    switch setting
+      when 'showCaptions'
+        @setState showCaptions: !@state.showCaptions
+      when 'showUserInfo'
+        @setState showUserInfo: !@state.showUserInfo
+      when 'showHapInfo'
+        @setState showHapInfo: !@state.showHapInfo
+
   _happeningInfo: ->
     feed = @state.feed
 
@@ -82,6 +120,7 @@
 
       `(
         <div className='image-container' key={index}>
+          {userDisplay}
           <img src={happening.photo_url} />
           {captionDisplay}
         </div>
@@ -101,10 +140,4 @@
       `(
         <h3>{happening.caption}</h3>
       )`
-
-
-
-
-
-
 
