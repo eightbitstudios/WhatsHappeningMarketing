@@ -4,7 +4,7 @@ require 'mina/rails'
 require 'mina/git'
 require 'mina/rbenv'
 require 'mina/unicorn'
-require 'mina/whenever'
+# require 'mina/whenever'
 
 # Manually create these paths in shared/ (eg: shared/config/database.yml) in your server.
 # They will be linked in the 'deploy:link_shared_paths' step.
@@ -54,7 +54,7 @@ task deploy: :environment do
     invoke :'rails:db_migrate'
     invoke :'rails:assets_precompile'
     invoke :'deploy:cleanup'
-    invoke :'whenever:update'
+    # invoke :'whenever:update'
 
     to :launch do
       queue "mkdir -p #{deploy_to}/#{current_path}/tmp/"
