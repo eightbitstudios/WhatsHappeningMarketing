@@ -6,6 +6,10 @@
   componentWillMount: ->
     @_loadHappenings()
 
+  # componentDidUpdate: ->
+  #   if $('#source').length > 0
+  #     $('#source img').slideshowify({ parentEl:'#targetDiv' })
+
   _loadHappenings: ->
     url = "https://whatshappening.eightbitstudios.com/api/v1/web_app/feeds/#{this.props.happeningKey}"
 
@@ -27,7 +31,11 @@
       `(
         <div>
           <h1>{feed.title}</h1>
-          {imageDisplay}
+          <div id="targetDiv"></div>
+
+          <div id="source">
+            {imageDisplay}
+          </div>
         </div>
       )`
 
@@ -51,18 +59,11 @@
 
     for happening, index in feed.happenings
       `(
-        <div key={index}>
+        <div className='image-container' key={index}>
           <h2>{happening.user_name}</h2>
           <img src={happening.user_image} width='50' />
           <img src={happening.photo_url} />
           <h3>{happening.caption}</h3>
         </div>
       )`
-
-
-
-
-
-
-
 
