@@ -3,6 +3,8 @@
     view: 'Start'
     happeningCode: null
 
+    showError: false
+
   render: ->
     selectedView = @_loadView()
 
@@ -24,6 +26,8 @@
         `<HappeningsDisplay happeningKey={this.state.happeningCode} reset={this._reset} />`
 
   _enterCode: ->
+    errorDisplay = @_errorDisplay()
+
     `(
       <div>
         <form>
@@ -35,10 +39,19 @@
               onChange={this._formUpdate}
               />
           </div>
+          {errorDisplay}
           <button type="submit" className="btn btn-default" onClick={this._loadHappenings}>Submit</button>
         </form>
       </div>
     )`
+
+  _errorDisplay: ->
+    if @state.showError == true
+      `(
+        <p>
+          Please enter in a 4-digit Happening Code.
+        </p>
+      )`
 
   _reset: (e) ->
     e.preventDefault()
@@ -51,7 +64,10 @@
 
   _loadHappenings: (e) ->
     e.preventDefault()
+    @setState showError: false
 
-    if @state.happeningCode.length == 4
+    if @state.happeningCode && @state.happeningCode?.length == 4
       @setState view: 'View'
+    else
+      @setState showError: true
 
