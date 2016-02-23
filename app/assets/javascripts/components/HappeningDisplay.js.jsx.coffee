@@ -92,6 +92,8 @@
           </ul>
         </div>
       )`
+    else
+      ``
 
   _toggleSetting: (setting, event) ->
     switch setting
@@ -112,6 +114,8 @@
           <p>{feed.join_key}</p>
         </div>
       )`
+    else
+      ``
 
   _imageDisplay: ->
     feed = @state.feed
@@ -123,7 +127,7 @@
       `(
         <div className='image-container' key={index}>
           {userDisplay}
-          <img src={happening.photo_url} />
+          <img src={happening.mobile_photo_url} />
           {captionDisplay}
         </div>
       )`
@@ -136,10 +140,13 @@
           <img src={happening.user_image} width='50' />
         </div>
       )`
+    else
+      ``
 
   _captionDisplay: (happening) ->
     if @state.showCaptions == true
       `(
         <h3>{happening.caption}</h3>
       )`
-
+    else
+      ``
