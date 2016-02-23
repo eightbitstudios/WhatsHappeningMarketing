@@ -9,13 +9,9 @@
     selectedView = @_loadView()
 
     `(
-      <div className='container'>
-        <div className="row">
-          <div className="col-md-12">
-            {selectedView}
-          </div>
-        </div>
-      </div>
+      <span>
+        {selectedView}
+      </span>
     )`
 
   _loadView: ->
@@ -29,19 +25,21 @@
     errorDisplay = @_errorDisplay()
 
     `(
-      <div>
-        <form>
-          <div className="form-group">
-            <label>Enter Happening Code</label>
-            <input type="text"
-              ref="happeningCode"
-              className="form-control"
-              onChange={this._formUpdate}
-              />
-          </div>
-          {errorDisplay}
-          <button type="submit" className="btn btn-default" onClick={this._loadHappenings}>Submit</button>
-        </form>
+      <div className='container'>
+        <div className="row">
+          <form>
+            <div className="form-group">
+              <label>Enter Happening Code</label>
+              <input type="text"
+                ref="happeningCode"
+                className="form-control"
+                onChange={this._formUpdate}
+                />
+            </div>
+            {errorDisplay}
+            <button type="submit" className="btn btn-default" onClick={this._loadHappenings}>Submit</button>
+          </form>
+        </div>
       </div>
     )`
 

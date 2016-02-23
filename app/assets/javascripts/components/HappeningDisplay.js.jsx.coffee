@@ -14,6 +14,7 @@
 
   # componentDidUpdate: ->
   #   if $('#source').length > 0
+  #     $('#source').hide()
   #     $('#source img').slideshowify({ parentEl:'#targetDiv' })
 
   _loadHappenings: ->
@@ -37,7 +38,7 @@
       imageDisplay = @_imageDisplay()
 
       `(
-        <div>
+        <div id="targetDiv">
           <button type="submit" className="btn btn-default" onClick={this.props.reset}>Reset</button>
 
           <div>
@@ -48,8 +49,6 @@
           <h1>{feed.title}</h1>
 
           {happeningInfo}
-
-          <div id="targetDiv"></div>
 
           <div id="source">
             {imageDisplay}
