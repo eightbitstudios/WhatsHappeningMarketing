@@ -2,6 +2,6 @@ Rails.application.routes.draw do
 
   root 'marketing#index'
 
-  get 'happenings/:happening_key', to: 'happenings#show'
+  get 'view', to: 'happenings#show'
 
 end
