@@ -10,6 +10,14 @@ gem 'react-rails', '~> 1.6.0'
 gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
 
+# MINA DEPLOYMENT GEMS
+gem 'mina'
+gem 'mina-multistage',  require: false
+
+group :production, :staging do
+  gem 'unicorn-rails'
+end
+
 group :development, :test do
   gem 'byebug'
 end
