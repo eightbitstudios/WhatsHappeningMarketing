@@ -3,19 +3,21 @@
     feed: null
     notFound: false
 
-    showCaptions: false
-    showUserInfo: false
-    showHapInfo: false
+    showCaptions: true
+    showUserInfo: true
+    showHapInfo: true
 
     showSettings: false
 
   componentWillMount: ->
     @_loadHappenings()
 
-  # componentDidUpdate: ->
-  #   if $('#source').length > 0
-  #     $('#source').hide()
-  #     $('#source img').slideshowify({ parentEl:'#targetDiv' })
+  componentDidUpdate: ->
+    if $('#source').length > 0
+#      $('#source').hide()
+      $('.image-container .image-main').slideshowify()
+      # working on making some cool shiz happen here
+#      $('#source').bind('afterFadeIn'), $(e, img){ console.log('nyes') })
 
   _loadHappenings: ->
     url = "https://whatshappening.eightbitstudios.com/api/v1/web_app/feeds/#{this.props.happeningKey}"
@@ -108,9 +110,9 @@
 
     if @state.showHapInfo == true
       `(
-        <div>
-          <p>http://haps.tv</p>
-          <p>{feed.join_key}</p>
+        <div className='join-key'>
+          <div className='domain'>haps.tv</div>
+          <div className='key'>{feed.join_key}</div>
         </div>
       )`
     else
@@ -126,7 +128,7 @@
       `(
         <div className='image-container' key={index}>
           {userDisplay}
-          <img src={happening.mobile_photo_url} />
+          <img className='image-main' src={happening.photo_url} />
           {captionDisplay}
         </div>
       )`
@@ -134,9 +136,9 @@
   _userDisplay: (happening) ->
     if @state.showUserInfo == true
       `(
-        <div>
+        <div className='user'>
+          <img className='img-circle pull-left' src={happening.user_image} width='80' />
           <h2>{happening.user_name}</h2>
-          <img src={happening.user_image} width='50' />
         </div>
       )`
     else
@@ -145,7 +147,9 @@
   _captionDisplay: (happening) ->
     if @state.showCaptions == true
       `(
-        <h3>{happening.caption}</h3>
+        <div className='caption'>
+          <h3>{happening.caption}</h3>
+        </div>
       )`
     else
       ``

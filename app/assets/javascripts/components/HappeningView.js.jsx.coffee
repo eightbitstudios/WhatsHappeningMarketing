@@ -9,9 +9,9 @@
     selectedView = @_loadView()
 
     `(
-      <span>
+      <div>
         {selectedView}
-      </span>
+      </div>
     )`
 
   _loadView: ->

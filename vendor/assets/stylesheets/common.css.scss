@@ -1,0 +1,62 @@
+body {
+	background: #7e11ff;
+	color: #fff;
+}
+
+a {
+	font-size: 16px;
+	color: #fff;
+	
+	&:hover {
+		color: #ccc;
+		text-decoration: none;
+	}
+}
+
+
+
+.image-container {
+//	position: absolute;
+//	top: 0;
+//	left: 0;
+	.user {
+		position: absolute;
+		left: 20px;
+		bottom: 20px;
+		width: 375px;
+
+		h2 {
+			margin-left: 20px;
+		}
+
+		.img-circle {
+			box-shadow: 2px 2px 2px #333;
+			margin-right: 20px;
+		}
+
+	}
+	.caption {
+		position: absolute;
+		width: 50%;
+		margin-left:-25%;
+		left: 50%;
+		bottom: 40px;
+		text-align: center;
+	}
+}
+
+.join-key {
+	position: absolute;
+	text-align: right;
+	top: 20px;
+	right: 80px;
+	font-size: 14px;
+	
+	.domain {
+		font-size: 16px;
+	}
+	.key {
+		font-size: 24px;
+		font-weight: bold;
+	}
+}
