@@ -37,15 +37,15 @@
 (function($){
 
   $.fn.slideshowify = function(/* config */){
-  
+
     var _self         = this,
       _imgs         = [],
-      _imgIndex     = -1, 
-      _imgIndexNext = 0,        // for preloading next      
+      _imgIndex     = -1,
+      _imgIndexNext = 0,        // for preloading next
       _transition   = true,     // use CSS3 transitions (default might be changed during init)
       _easing       = 'in-out',
       _viewEl       = document, // filled by slideshow (used for determining dimensions)
-      _containerId  = "slideshowify-" + new Date().getTime(),
+      _containerId  = "slideshowify-container",
       _containerCSS = {
         "position" : "absolute",
         "overflow" : "hidden",
@@ -61,12 +61,11 @@
         randomize     : false,
         fadeInSpeed   : 1500,
         fadeOutSpeed  : 1500,
-        aniSpeedMin   : 9000, 
+        aniSpeedMin   : 9000,
         aniSpeedMax   : 15000
       },
       _$viewEl,
       _$parentEl;
-    
 
     if (arguments[0]){
       $.extend(_cfg, arguments[0]); // reconfigure
@@ -99,27 +98,27 @@
         modDims; // will hold values to set and animate
 
       if (imgRatio > viewRatio){
-        modDims = _transition ? 
-              direction ? {dim:'left', attr:'x', sign:'-'} : {dim:'right', attr:'x', sign:''} 
+        modDims = _transition ?
+              direction ? {dim:'left', attr:'x', sign:'-'} : {dim:'right', attr:'x', sign:''}
               :
               direction ? {dim:'left', attr:'left', sign:'-'} : {dim:'right', attr:'right', sign:'-'};
-        $img.height(viewH + 'px').width(curImg.w * (viewH/curImg.h) + 'px');      
+        $img.height(viewH + 'px').width(curImg.w * (viewH/curImg.h) + 'px');
         marginPixels = $img.width() - viewW;
       }
       else {
-        modDims = _transition ? 
-              direction ? {dim:'top', attr:'y', sign:'-'} : {dim:'bottom', attr:'y', sign:''} 
+        modDims = _transition ?
+              direction ? {dim:'top', attr:'y', sign:'-'} : {dim:'bottom', attr:'y', sign:''}
               :
               direction ? {dim:'top', attr:'top', sign:'-'} : {dim:'bottom', attr:'bottom', sign:'-'};
         $img.width(viewW+'px').height(curImg.h * (viewW/curImg.w) + 'px');
         marginPixels = $img.height() - viewH;
       }
       $img.css(modDims.dim, '0');
-      transAttr[modDims.attr] = modDims.sign + marginPixels + 'px'; 
+      transAttr[modDims.attr] = modDims.sign + marginPixels + 'px';
 
       // if marginThreshold is small, zoom a little instead of panning
       if (_transition && marginPixels < marginThreshold){
-        if (direction){ // zoom out 
+        if (direction){ // zoom out
           $img.css('scale','1.2');
           transAttr = {'scale':'1'};
         }
@@ -131,7 +130,7 @@
       transProps = {
         duration : Math.min(Math.max(marginPixels * 10, _cfg.aniSpeedMin), _cfg.aniSpeedMax),
         easing   : _easing,
-        queue    : false, 
+        queue    : false,
         complete : function(){
           _$parentEl.trigger('beforeFadeOut', _imgs[_imgIndex])
           $img.fadeOut(_cfg.fadeOutSpeed, function(){
@@ -142,20 +141,21 @@
 
         }
       };
-      
+
       _$parentEl.trigger('beforeFadeIn', _imgs[_imgIndex]);
       $img.fadeIn(_cfg.fadeInSpeed, function(){
           $img.css('z-index', -1);
+          $img.addClass('slideshow-image');
           _$parentEl.trigger('afterFadeIn', _imgs[_imgIndex])
         });
 
       // use animate if css3 transitions aren't supported
-      _transition ? 
+      _transition ?
         $img.transition($.extend(transAttr, transProps)) :
         $img.animate(transAttr, transProps);
     } // end of _revealImg()
 
-    
+
     /**
      * Loads image and starts display flow
      */
@@ -165,7 +165,7 @@
         len     = _imgs.length;
 
       _imgIndex = (_imgIndex < len-1) ? _imgIndex+1 : 0;
-    
+
       $(img)
         // assign handlers
         .load(function(){
@@ -183,7 +183,7 @@
         })
         .hide()
         .attr("src", _imgs[_imgIndex].src); // load
-    
+
       if (_imgIndexNext == len) return; // nothing left to preload
 
       // preload next image
@@ -192,7 +192,6 @@
         nextImg.src = _imgs[_imgIndexNext].src;
       }
     } // end of _loadImg()
-    
 
     // INITIALIZE
     if (!$.support.transition) {
@@ -201,7 +200,7 @@
         }
 
 
-      if (!_cfg.imgs){ // images were passed as selector 
+      if (!_cfg.imgs){ // images were passed as selector
       // load images into private array
       $(this).each(function(i, img){
         $(img).hide();
@@ -215,14 +214,13 @@
     else {
       _imgs = _cfg.imgs;
     }
-  
-    
-    if (_cfg.randomize){ 
+
+    if (_cfg.randomize){
       _imgs.sort(function(){ return 0.5 - Math.random(); });
     }
 
 
-    // create container div 
+    // create container div
     $("<div id='"+_containerId+"'></div>")
       .css(_containerCSS)
       .appendTo(_cfg.parentEl);
@@ -230,13 +228,14 @@
 
     // start
     _loadImg();
-    
+
     return this;
   };
 
   /**
    * Expose slideshowify() to jQuery for use without DOM selector.
-   */ 
+   */
+
   $.slideshowify = function(cfg){
     var _self = this,
       _cfg  = {
@@ -245,15 +244,15 @@
         async    : true,
         filterFn : function(data){ return data; } // default filter. does nothing
       };
-        
+
     $.extend(_cfg, cfg);
-  
+
     $.ajax({
       url      : _cfg.dataUrl,
       dataType : _cfg.dataType,
       async    : _cfg.async,
       success  : function(imgs){
-        _cfg.imgs = _cfg.filterFn(imgs);      
+        _cfg.imgs = _cfg.filterFn(imgs);
         $({}).slideshowify(_cfg);
       }
     });

@@ -9,15 +9,20 @@
 
     showSettings: false
 
+    currentHappening: null
+
   componentWillMount: ->
     @_loadHappenings()
 
   _initSlideshow: ->
     if $('#source').length > 0
-#      $('#source').hide()
       $('.image-container .image-main').slideshowify()
-      # working on making some cool shiz happen here
-#      $('#source').bind('afterFadeIn'), $(e, img){ console.log('nyes') })
+      $('body').bind 'afterFadeIn', (e, img) =>
+        sourceString = img['src']
+        @_showInfo(sourceString)
+
+      $('body').bind 'beforeFadeOut', =>
+        @setState currentHappening: null
 
   _loadHappenings: ->
     url = "https://whatshappening.eightbitstudios.com/api/v1/web_app/feeds/#{this.props.happeningKey}"
@@ -41,6 +46,9 @@
       happeningInfo = @_happeningInfo()
       imageDisplay = @_imageDisplay()
 
+      userDisplay = @_userDisplay()
+      captionDisplay = @_captionDisplay()
+
       `(
         <div id="targetDiv">
           <button type="submit" className="btn btn-default" onClick={this.props.reset}>Reset</button>
@@ -53,6 +61,8 @@
           <h1>{feed.title}</h1>
 
           {happeningInfo}
+          {userDisplay}
+          {captionDisplay}
 
           <div id="source">
             {imageDisplay}
@@ -124,34 +134,38 @@
     feed = @state.feed
 
     for happening, index in feed.happenings
-      userDisplay = @_userDisplay(happening)
-      captionDisplay = @_captionDisplay(happening)
-
       `(
         <div className='image-container' key={index}>
-          {userDisplay}
           <img className='image-main' src={happening.photo_url} />
-          {captionDisplay}
         </div>
       )`
 
-  _userDisplay: (happening) ->
-    if @state.showUserInfo == true
+  _showInfo: (src) ->
+    happening = @_happeningFromSource(src)
+
+    @setState currentHappening: happening
+
+  _happeningFromSource: (src) ->
+    for happening in @state.feed.happenings when happening.photo_url == src
+      return happening
+
+  _userDisplay: ->
+    if @state.showUserInfo == true && @state.currentHappening != null
+      happening = @state.currentHappening
+
       `(
         <div className='user'>
           <img className='img-circle pull-left' src={happening.user_image} width='80' />
           <h2>{happening.user_name}</h2>
         </div>
       )`
-    else
-      ``
 
-  _captionDisplay: (happening) ->
-    if @state.showCaptions == true
+  _captionDisplay: ->
+    if @state.showCaptions == true && @state.currentHappening != null
+      happening = @state.currentHappening
+
       `(
         <div className='caption'>
           <h3>{happening.caption}</h3>
         </div>
       )`
-    else
-      ``
