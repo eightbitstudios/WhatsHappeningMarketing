@@ -51,7 +51,7 @@
 
       `(
         <div id="targetDiv">
-          <button type="submit" className="btn btn-default" onClick={this.props.reset}>Reset</button>
+          <button type="submit" className="btn btn-default" onClick={this._reset}>Reset</button>
 
           <div>
             <a onClick={this._toggleSettings}>Settings</a>
@@ -84,6 +84,9 @@
           <h5>Loading...</h5>
         </div>
       )`
+
+  _reset: ->
+    window.location = "/view"
 
   _toggleSettings: ->
     @setState showSettings: !@state.showSettings

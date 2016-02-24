@@ -1,10 +1,10 @@
 /**
- * Slideshowify is a super easy-to-use jQuery plugin for generating image slideshows 
- * with a Ken Burns Effect, where images which don't fit the screen exactly 
- * (generally the case) are cropped and either panned across the screen or 
+ * Slideshowify is a super easy-to-use jQuery plugin for generating image slideshows
+ * with a Ken Burns Effect, where images which don't fit the screen exactly
+ * (generally the case) are cropped and either panned across the screen or
  * zoomed in a randomly determined direction.
- * 
- * Author: Aleksandar Kolundzija 
+ *
+ * Author: Aleksandar Kolundzija
  * version 0.9.3
  *
  * @requires jquery
