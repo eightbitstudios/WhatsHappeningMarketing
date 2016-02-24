@@ -12,7 +12,7 @@
   componentWillMount: ->
     @_loadHappenings()
 
-  componentDidUpdate: ->
+  _initSlideshow: ->
     if $('#source').length > 0
 #      $('#source').hide()
       $('.image-container .image-main').slideshowify()
@@ -28,6 +28,8 @@
       url: url
       success: (response) =>
         @setState feed: response.feed
+
+        @_initSlideshow()
 
       error: (response) =>
         @setState notFound: true
