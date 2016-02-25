@@ -51,14 +51,14 @@
 
       `(
         <div id="targetDiv">
-          <button type="submit" className="btn btn-default" onClick={this.props.reset}>Reset</button>
+          <div className="vignette-top"></div>
+          <div className="vignette-bottom"></div>
 
-          <div>
-            <a onClick={this._toggleSettings}>Settings</a>
-            {settingsDisplay}
+          <div className="settings">
+            <a className="glyphicon glyphicon-flash" aria-hidden="true" onClick={this._toggleSettings}>Settings</a>
+            {settingsDisplay} 
+            <a className="glyphicon glyphicon-log-out" aria-hidden="true" onClick={this.props.reset}></a>
           </div>
-
-          <h1>{feed.title}</h1>
 
           {happeningInfo}
           {userDisplay}
@@ -123,8 +123,8 @@
     if @state.showHapInfo == true
       `(
         <div className='join-key'>
-          <div className='domain'>haps.tv</div>
-          <div className='key'>{feed.join_key}</div>
+          <div className='key'><span>Join:</span> {feed.join_key}</div>
+          <div className='domain'>{feed.title} on haps.tv</div>
         </div>
       )`
     else
