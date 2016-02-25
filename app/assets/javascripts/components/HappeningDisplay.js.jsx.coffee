@@ -57,9 +57,9 @@
           <div className="join-settings">
             {happeningInfo}
             <div className="settings">
-              <a className="glyphicon glyphicon-flash" aria-hidden="true" onClick={this._toggleSettings}>Settings</a>
+              <a className="glyphicon glyphicon-option-vertical" aria-hidden="true" onClick={this._toggleSettings}></a>
               {settingsDisplay}
-              <a className="glyphicon glyphicon-log-out" aria-hidden="true" onClick={this._reset}></a>
+              
             </div>
           </div>
 
@@ -83,8 +83,8 @@
 
     else
       `(
-        <div>
-          <h5>Loading...</h5>
+        <div className="loading">
+          <img src="loader.gif" />
         </div>
       )`
 
@@ -98,7 +98,7 @@
     if @state.showSettings == true
       captionText = this._settingButtonText(this.state.showCaptions, "Captions")
       userInfoText = this._settingButtonText(this.state.showUserInfo, "User Info")
-      joinCodeText = this._settingButtonText(this.state.showHapInfo, "Happening Join Code")
+      joinCodeText = this._settingButtonText(this.state.showHapInfo, "Join Code")
 
       `(
         <div>
@@ -111,6 +111,9 @@
             </li>
             <li>
               <a onClick={this._toggleSetting.bind(this, "showHapInfo")}>{joinCodeText}</a>
+            </li>
+            <li>
+              <a className="glyphicon glyphicon-log-out" aria-hidden="true" onClick={this._reset}>Leave</a>
             </li>
           </ul>
         </div>
@@ -139,7 +142,7 @@
     if @state.showHapInfo == true
       `(
         <div className='join-key'>
-          <div className='key'><span>Join:</span> {feed.join_key}</div>
+          <div className='key'><span className='join-label'>Join:</span>{feed.join_key}</div>
           <div className='domain'>{feed.title} on haps.tv</div>
         </div>
       )`
