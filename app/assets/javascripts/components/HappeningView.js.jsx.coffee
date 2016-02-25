@@ -25,19 +25,21 @@
     errorDisplay = @_errorDisplay()
 
     `(
-      <div className='container'>
+      <div className='container enter-code'>
         <div className="row">
           <form>
             <div className="form-group">
-              <label>Enter Happening Code</label>
+              <h1>Enter Happening Code</h1>
               <input type="text"
+                maxlength="4"
                 ref="happeningCode"
                 className="form-control"
                 onChange={this._formUpdate}
                 />
+              <p>Codes are located at the top of the stream in the app</p>
             </div>
             {errorDisplay}
-            <button type="submit" className="btn btn-default" onClick={this._loadHappenings}>Submit</button>
+            <button type="submit" className="btn btn-default" onClick={this._loadHappenings}>View</button>
           </form>
         </div>
       </div>

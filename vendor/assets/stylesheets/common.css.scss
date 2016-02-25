@@ -13,6 +13,38 @@ a {
 	}
 }
 
+.enter-code {
+	text-align: center;
+	
+	h1 {
+		margin: 84px 0 34px;
+	}
+	input {
+		font-size: 144px;
+		letter-spacing: 20px;
+		height: 195px;
+		width: 624px;
+		color: #666;
+		padding: 0 100px;
+		display: inline-block;
+		text-align: center;
+	}
+	button {
+		width: 340px;
+		height: 67px;
+		background: #53caaf;
+		font-size: 31px;
+		color: #fff;
+		border: none;
+		border-radius: 32px;
+	}
+	p {
+		font-size: 26px;
+		opacity: .75;
+		color: #fff;
+		margin: 18px 0 60px;
+	}
+}
 
 
 .image-container {
