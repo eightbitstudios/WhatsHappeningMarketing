@@ -58,12 +58,12 @@
             {happeningInfo}
             <div className="settings">
               <a className="glyphicon glyphicon-flash" aria-hidden="true" onClick={this._toggleSettings}>Settings</a>
-              {settingsDisplay} 
+              {settingsDisplay}
               <a className="glyphicon glyphicon-log-out" aria-hidden="true" onClick={this._reset}></a>
             </div>
           </div>
 
-          
+
           {userDisplay}
           {captionDisplay}
 
@@ -96,23 +96,33 @@
 
   _settingsDisplay: ->
     if @state.showSettings == true
+      captionText = this._settingButtonText(this.state.showCaptions, "Captions")
+      userInfoText = this._settingButtonText(this.state.showUserInfo, "User Info")
+      joinCodeText = this._settingButtonText(this.state.showHapInfo, "Happening Join Code")
+
       `(
         <div>
           <ul>
             <li>
-              <a onClick={this._toggleSetting.bind(this, "showCaptions")}>Show Captions</a>
+              <a onClick={this._toggleSetting.bind(this, "showCaptions")}>{captionText}</a>
             </li>
             <li>
-              <a onClick={this._toggleSetting.bind(this, "showUserInfo")}>Show User Info</a>
+              <a onClick={this._toggleSetting.bind(this, "showUserInfo")}>{userInfoText}</a>
             </li>
             <li>
-              <a onClick={this._toggleSetting.bind(this, "showHapInfo")}>Show Happening Join Code</a>
+              <a onClick={this._toggleSetting.bind(this, "showHapInfo")}>{joinCodeText}</a>
             </li>
           </ul>
         </div>
       )`
     else
       ``
+
+  _settingButtonText: (state, text) ->
+    if state == true
+      "Hide #{text}"
+    else
+      "Show #{text}"
 
   _toggleSetting: (setting, event) ->
     switch setting
