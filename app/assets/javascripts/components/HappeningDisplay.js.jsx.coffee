@@ -115,8 +115,8 @@
   _settingsDisplay: ->
     if @state.showSettings == true
       captionText = this._settingButtonText(this.state.showCaptions, "Captions")
-      userInfoText = this._settingButtonText(this.state.showUserInfo, "User Info")
-      joinCodeText = this._settingButtonText(this.state.showHapInfo, "Join Code")
+      userInfoText = this._settingButtonText(this.state.showUserInfo, "User")
+      joinCodeText = this._settingButtonText(this.state.showHapInfo, "Code")
 
       `(
         <div>

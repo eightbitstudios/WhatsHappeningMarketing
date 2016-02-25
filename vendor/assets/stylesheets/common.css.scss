@@ -39,6 +39,7 @@ a {
 		padding: 0 100px;
 		display: inline-block;
 		text-align: center;
+		font-weight: 600;
 	}
 	button {
 		width: 340px;
@@ -48,6 +49,7 @@ a {
 		color: #fff;
 		border: none;
 		border-radius: 32px;
+		outline: none;
 	}
 	p {
 		font-size: 26px;
@@ -152,6 +154,7 @@ width: 100%;
 	.settings {
 		text-align: right;
 		cursor: pointer;
+		position: relative;
 	
 		a {
 			margin-left: 10px;
@@ -165,7 +168,14 @@ width: 100%;
 				color: #53caaf;
 			}
 		}
-
+		
+		ul {
+			position: absolute;
+			top: 80px;
+			right: 0;
+			width: 250px;
+		}
+		
 		ul li {
 			list-style-type: none;
 			cursor: pointer;
@@ -173,7 +183,7 @@ width: 100%;
 			padding: 0;
 			
 			a {
-				font-size: 16px;
+				font-size: 21px;
 			}
 		}
 	}
