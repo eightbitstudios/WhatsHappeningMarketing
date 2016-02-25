@@ -54,13 +54,16 @@
           <div className="vignette-top"></div>
           <div className="vignette-bottom"></div>
 
-          <div className="settings">
-            <a className="glyphicon glyphicon-flash" aria-hidden="true" onClick={this._toggleSettings}>Settings</a>
-            {settingsDisplay} 
-            <a className="glyphicon glyphicon-log-out" aria-hidden="true" onClick={this._reset}></a>
+          <div className="join-settings">
+            {happeningInfo}
+            <div className="settings">
+              <a className="glyphicon glyphicon-flash" aria-hidden="true" onClick={this._toggleSettings}>Settings</a>
+              {settingsDisplay} 
+              <a className="glyphicon glyphicon-log-out" aria-hidden="true" onClick={this._reset}></a>
+            </div>
           </div>
 
-          {happeningInfo}
+          
           {userDisplay}
           {captionDisplay}
 

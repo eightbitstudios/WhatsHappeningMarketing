@@ -52,28 +52,7 @@ width: 100%;
 	}
 }
 
-.join-key {
-	position: absolute;
-	text-align: right;
-	top: 3%;
-	right: 3%;
-	font-size: 18px;
-	color: #53caaf;
-	z-index: 1;
-	
-	.domain {
-		font-size: 18px;
-		margin-top: -10px;
-		color: #ccc;
-	}
-	.key {
-		font-size: 38px;
-		font-weight: bold;
-		span {
-			font-weight: normal;
-		}
-	}
-}
+
 
 .vignette-top {
 	width: 100%;
@@ -98,20 +77,44 @@ width: 100%;
 	
 }
 
-.settings {
-	z-index: 2;
-	top: 11%;
-	right: 3%;
+.join-settings {
 	position: absolute;
-	text-align: right;
-	cursor: pointer;
+	right: 3%;
+	top: 3%;
+	z-index: 2;
 	
-	a {
-		margin-left: 10px;
+	.join-key {
+		text-align: right;
+		font-size: 18px;
+		color: #53caaf;
+	
+		.domain {
+			font-size: 18px;
+			margin-top: -10px;
+			color: #ccc;
+		}
+		.key {
+			font-size: 38px;
+			font-weight: bold;
+			span {
+				font-weight: normal;
+			}
+		}
 	}
 
-	ul li {
-		list-style-type: none;
+	.settings {
+		text-align: right;
 		cursor: pointer;
+	
+		a {
+			margin-left: 10px;
+		}
+
+		ul li {
+			list-style-type: none;
+			cursor: pointer;
+		}
 	}
+
 }
+
