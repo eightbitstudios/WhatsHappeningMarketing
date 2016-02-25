@@ -85,6 +85,9 @@
         </div>
       )`
 
+  _reset: ->
+    window.location = "/view"
+
   _toggleSettings: ->
     @setState showSettings: !@state.showSettings
 
