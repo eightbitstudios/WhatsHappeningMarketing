@@ -16,6 +16,35 @@ a {
 	}
 }
 
+.hello {
+	text-align: center;
+
+	h1 {
+		font-size: 90px;
+		text-align: center;
+	}
+	p {
+		display: block;
+		width: 300px;
+		margin: 0 auto;
+	}
+	
+}
+
+.demo {
+	text-align: center;
+	.slide {
+		display: inline-block;
+		width: 250px;
+		font-size: 16px;
+		img {
+			display: block;
+			width: 250px;
+		}
+	}
+	
+}
+
 .loading {
 	text-align: center;
 	margin: 300px 0 0;
