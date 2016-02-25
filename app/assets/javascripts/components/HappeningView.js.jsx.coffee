@@ -25,7 +25,19 @@
     errorDisplay = @_errorDisplay()
 
     `(
-      <div className='container enter-code'>
+      <div className='enter-code'>
+        <div className="navbar navbar-collapse">
+          <ul className="nav navbar-nav">
+            <li>
+              <a className="glyphicon glyphicon-menu-left ghome" href="/"></a>
+            </li>
+          </ul>
+          <ul className="nav navbar-nav pull-right">
+            <li>
+              <a href="http://eightbitstudios.com">Download</a>
+            </li>
+          </ul>
+        </div>
         <div className="row">
           <form>
             <div className="form-group">
@@ -39,7 +51,8 @@
               <p>Codes are located at the top of the stream in the app</p>
             </div>
             {errorDisplay}
-            <button type="submit" className="btn btn-default" onClick={this._loadHappenings}>View</button>
+            <button type="submit" className="btn btn-default" onClick={this._loadHappenings}>Join</button>
+            <p className="ohno">Don't have a code? View one of ours: <strong>ce61</strong></p>
           </form>
         </div>
       </div>
