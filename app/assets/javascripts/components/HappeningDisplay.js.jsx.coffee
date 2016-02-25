@@ -11,6 +11,8 @@
 
     currentHappening: null
 
+    fullScreen: false
+
   componentWillMount: ->
     @_loadHappenings()
 
@@ -49,6 +51,8 @@
       userDisplay = @_userDisplay()
       captionDisplay = @_captionDisplay()
 
+      toggleFullScreenButton = @_toggleFullScreenButton()
+
       `(
         <div id="targetDiv">
           <div className="vignette-top"></div>
@@ -56,7 +60,7 @@
 
           <div className="join-settings">
             <div className="settings pull-right">
-              <a className="glyphicon glyphicon-fullscreen" aria-hidden="true" onClick={launchIntoFullscreen document.documentElement}></a>
+              {toggleFullScreenButton}
               <a className="glyphicon glyphicon-option-horizontal" aria-hidden="true" onClick={this._toggleSettings}></a>
               {settingsDisplay}
             </div>
@@ -90,6 +94,20 @@
 
   _reset: ->
     window.location = "/view"
+
+  _toggleFullScreenButton: ->
+    if @state.fullScreen == false
+      `<a className="glyphicon glyphicon-fullscreen" aria-hidden="true" onClick={this._launchFullScreen}></a>`
+    else
+      `<a className="glyphicon glyphicon-resize-small" aria-hidden="true" onClick={this._exitFullScreen}></a>`
+
+  _launchFullScreen: ->
+    @setState fullScreen: true
+    launchIntoFullscreen document.documentElement
+
+  _exitFullScreen: ->
+    @setState fullScreen: false
+    exitFullscreen document.documentElement
 
   _toggleSettings: ->
     @setState showSettings: !@state.showSettings
