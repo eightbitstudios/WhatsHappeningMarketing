@@ -31,7 +31,7 @@
             <div className="form-group">
               <h1>Enter Happening Code</h1>
               <input type="text"
-                maxlength="4"
+                maxLength="4"
                 ref="happeningCode"
                 className="form-control"
                 onChange={this._formUpdate}

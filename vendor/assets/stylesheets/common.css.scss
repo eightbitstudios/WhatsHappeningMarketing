@@ -18,7 +18,7 @@ a {
 
 .loading {
 	text-align: center;
-	margin: 200px 0;
+	margin: 300px 0 0;
 	img {
 		display: inline-block;
 	}
@@ -124,6 +124,7 @@ width: 100%;
 	position: absolute;
 	right: 3%;
 	top: 3%;
+	width: 50%;
 	z-index: 2;
 	
 	.join-key {
@@ -154,11 +155,26 @@ width: 100%;
 	
 		a {
 			margin-left: 10px;
+			display: block;
+			color: #ccc;
+			margin: 12px 0 -5px 10px;
+			font-size: 27px;
+			font-size: 30px;
+			
+			&:hover {
+				color: #53caaf;
+			}
 		}
 
 		ul li {
 			list-style-type: none;
 			cursor: pointer;
+			margin: 0;
+			padding: 0;
+			
+			a {
+				font-size: 16px;
+			}
 		}
 	}
 

@@ -55,12 +55,12 @@
           <div className="vignette-bottom"></div>
 
           <div className="join-settings">
-            {happeningInfo}
-            <div className="settings">
-              <a className="glyphicon glyphicon-option-vertical" aria-hidden="true" onClick={this._toggleSettings}></a>
+            <div className="settings pull-right">
+              <a className="glyphicon glyphicon-fullscreen" aria-hidden="true" onClick={launchIntoFullscreen document.documentElement}></a>
+              <a className="glyphicon glyphicon-option-horizontal" aria-hidden="true" onClick={this._toggleSettings}></a>
               {settingsDisplay}
-              
             </div>
+            {happeningInfo}
           </div>
 
 
