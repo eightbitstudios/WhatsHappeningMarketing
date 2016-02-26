@@ -1,7 +1,8 @@
 @HappeningsDisplay = React.createClass
   getInitialState: ->
     feed: null
-    notFound: false
+    displayMessage: false
+    messageToDisplay: null
 
     showCaptions: true
     showUserInfo: true
@@ -27,6 +28,10 @@
         @setState currentHappening: null
 
   _loadHappenings: ->
+    @setState
+      displayMessage: false
+      messageToDisplay: null
+
     url = "https://whatshappening.eightbitstudios.com/api/v1/web_app/feeds/#{this.props.happeningKey}"
 
     $.ajax
@@ -34,12 +39,20 @@
       dataType: 'json'
       url: url
       success: (response) =>
-        @setState feed: response.feed
+        if response.feed.happenings.length > 0
+          @setState feed: response.feed
 
-        @_initSlideshow()
+          @_initSlideshow()
+
+        else
+          @setState
+            displayMessage: true
+            messageToDisplay: "Hang tight, nothing's happening yet."
 
       error: (response) =>
-        @setState notFound: true
+        @setState
+          displayMessage: true
+          messageToDisplay: "Could not find that Happening. Please try again."
 
   render: ->
     if @state.feed != null
@@ -77,10 +90,10 @@
         </div>
       )`
 
-    else if @state.notFound == true
+    else if @state.displayMessage == true
       `(
         <div>
-          <h3>Could not find that Happening. Please try again.</h3>
+          <h3>{this.state.messageToDisplay}</h3>
           <button type="submit" className="btn btn-default" onClick={this.props.reset}>Reset</button>
         </div>
       )`
