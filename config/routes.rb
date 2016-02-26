@@ -4,4 +4,9 @@ Rails.application.routes.draw do
 
   get 'view', to: 'happenings#show'
 
+  namespace :legal do
+    get 'terms'
+    get 'privacy'
+  end
+
 end
