@@ -34,7 +34,7 @@
           </ul>
           <ul className="nav navbar-nav pull-right">
             <li>
-              <a href="http://eightbitstudios.com">Download</a>
+              <a href="#">Coming Soon</a>
             </li>
           </ul>
         </div>
