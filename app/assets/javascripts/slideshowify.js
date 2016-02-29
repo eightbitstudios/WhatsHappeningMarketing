@@ -45,7 +45,7 @@
       _transition   = true,     // use CSS3 transitions (default might be changed during init)
       _easing       = 'in-out',
       _viewEl       = document, // filled by slideshow (used for determining dimensions)
-      _containerId  = "slideshowify-container",
+      _containerId  = "slideshowify-" + new Date().getTime(),
       _containerCSS = {
         "position" : "absolute",
         "overflow" : "hidden",
@@ -135,6 +135,12 @@
           _$parentEl.trigger('beforeFadeOut', _imgs[_imgIndex])
           $img.fadeOut(_cfg.fadeOutSpeed, function(){
             _$parentEl.trigger('afterFadeOut', _imgs[_imgIndex]);
+
+            // If image is last image in array
+            if (_imgIndex == (_imgs.length - 1)) {
+              _$parentEl.trigger('lastImageLoaded');
+            }
+
             $img.remove();
           });
           _loadImg();

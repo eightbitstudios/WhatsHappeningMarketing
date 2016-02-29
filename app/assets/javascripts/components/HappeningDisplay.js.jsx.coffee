@@ -27,6 +27,11 @@
       $('body').bind 'beforeFadeOut', =>
         @setState currentHappening: null
 
+      $('body').bind 'lastImageLoaded', =>
+        console.log "Need to stop, re-trigger slideshow here"
+        # $("[id^=slideshowify]").remove()
+        # $('.image-container .image-main').slideshowify()
+
   _loadHappenings: ->
     @setState
       displayMessage: false
