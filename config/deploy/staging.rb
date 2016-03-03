@@ -1,0 +1,9 @@
+set :domain, '45.79.133.174'
+set :deploy_to, '/home/deploy/apps/happening_marketing_staging'
+set :repository, 'git@github.com:eightbitstudios/WhatsHappeningMarketing.git'
+set :branch, 'staging'
+set :user, 'deploy'
+set :forward_agent, true
+set :unicorn_pid, "#{deploy_to}/shared/pids/unicorn.pid"
+set :rails_env, 'staging'
+set :unicorn_env, "staging"

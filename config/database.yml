@@ -10,6 +10,12 @@ test:
   database: whats_happening_marketing_test
   min_messages: warning
 
+staging:
+  adapter: postgresql
+  host: localhost
+  database: whats_happening_marketing_staging
+  min_messages: warning
+
 production:
   adapter: postgresql
   host: localhost

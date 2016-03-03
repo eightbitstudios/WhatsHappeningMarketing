@@ -1,0 +1,33 @@
+[servers]
+45.79.133.174
+
+[all:vars]
+ansible_ssh_user=root
+
+# ssh config
+deployment_public_key=~/.ssh/id_rsa.pub
+deploy_user=deploy
+
+# openssl passwd -salt salted -1 plaintext
+deploy_user_password=$1$eightBit$iqlHb9NI16mS0kVz5L4QG.
+
+# postgres config
+postgres_version=9.4
+postgres_root_password=5c9abdefd96a
+postgres_db_name=whats_happening_marketing_staging
+postgres_user=deploy
+postgres_user_password=d9bd5b7fce81
+
+# nginx config
+unicorn_upstream_app=unicorn
+nginx_server_name=staging.haps.tv
+
+# ruby config
+ruby_version=2.3.0
+
+# rails config
+rails_app_name=happening_marketing_staging
+rails_env=staging
+
+# env variables
+rails_secret_key_base=f03ead9961d64f7ce22c09c319b2a9cf66adc681368cfe9e87173da85b9da99bab0a6cf9b0812a8fb4ca1fefda7510033256265930e7f5ed19f64e8d371fb05f
