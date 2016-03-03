@@ -6,22 +6,32 @@
       = link_to 'Coming Soon', '#'
 
 .hello
-  =image_tag '/logo-intro.gif', :class=> 'boom center-block'
-  %h1 Happenings - STAGING
+  =image_tag '/loader.gif', :class=> 'boom center-block'
+  %h1 Happenings
   %p The quickest way to privately share what’s going on between friends!
   %p.call-to-action
-    = link_to 'Enter a Happening', view_path, :class=> 'btn btn-lg btn-default'
+    = link_to 'See What\'s Happening', view_path, :class=> 'btn btn-lg btn-default'
 
 .demo
-  .row.slide.cfx
-    =image_tag '/step-1.png', :class=> 'pull-right img-responsive'
-    %p Capture what’s happening.
-  .row.slide
-    =image_tag '/step-2.png', :class=> 'pull-left img-circle img-responsive'
-    %p Share the code to invite friends.
-  .row.slide
-    =image_tag '/step-3.png', :class=> 'pull-right img-responsive'
-    %p Watch along as it all happens!
+  .row.slide.cfx.step-1
+    
+    .col-md-6.col-xs-12
+      %p Capture what’s happening.
+    .col-md-6.col-xs-12
+      =image_tag '/haps_capture.gif', :class=> 'align-center img-responsive center-block'
+  .row.slide.step-2
+    .col-xs-12.hidden-md.hidden-lg
+      %p Share the code to invite friends.
+    .col-md-6.col-xs-12
+      =image_tag '/haps_join.gif', :class=> 'img-responsive center-block'
+    .col-md-6.col-xs-12.hidden-xs
+      %p Share the code to invite friends.
+  .row.slide.step-3
+    .col-md-6.col-xs-12
+      %p Watch along as it all happens!
+    .col-md-6.col-xs-12
+      =image_tag '/haps_watch.gif', :class=> 'img-responsive center-block'
+
 
 .legal
   .text-center

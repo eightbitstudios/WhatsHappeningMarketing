@@ -86,14 +86,22 @@ a {
 			font-size: 36px;
 			
 			vertical-align: middle;
-			padding: 20% 0 0 0;
+			padding: 140px 20px 0px;
 		}
 		img {
 			vertical-align: middle;
+			margin-top: 40px;
 			
 			&.img-responsive {
 				max-width: 500px;
 			}
+		}
+		
+		&.step-2 {
+			background: #53c9ae;
+		}
+		&.step-3 {
+			background: #ff775c;
 		}
 	}
 	
