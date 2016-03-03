@@ -182,7 +182,7 @@
       `(
         <div className='join-key'>
           <div className='key'><span className='join-label'>Join:</span>{feed.join_key}</div>
-          <div className='domain'>{feed.title} on haps.tv</div>
+          <div className='domain'><span className='feed-title'>{feed.title}</span> on haps.tv</div>
         </div>
       )`
     else
