@@ -44,6 +44,7 @@
               <h1>Enter Happening Code</h1>
               <input type="text"
                 maxLength="4"
+                autoFocus="true"
                 ref="happeningCode"
                 className="form-control"
                 onChange={this._formUpdate}
@@ -52,7 +53,7 @@
             </div>
             {errorDisplay}
             <button type="submit" className="btn btn-default" onClick={this._loadHappenings}>Join</button>
-            <p className="ohno">Don't have a code? View one of ours: <strong>ce61</strong></p>
+            <p className="ohno">Don't have a code? View one of ours: <strong><a onClick={this._loadDefaultHappening}>8b1t</a></strong></p>
           </form>
         </div>
       </div>
@@ -74,6 +75,10 @@
   _formUpdate: ->
     @setState
       happeningCode: ReactDOM.findDOMNode(this.refs.happeningCode).value
+
+  _loadDefaultHappening: ->
+    @setState happeningCode: "8b1t"
+    @setState view: 'View'
 
   _loadHappenings: (e) ->
     e.preventDefault()
