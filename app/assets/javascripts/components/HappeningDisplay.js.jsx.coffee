@@ -97,9 +97,12 @@
 
     else if @state.displayMessage == true
       `(
-        <div>
-          <h3>{this.state.messageToDisplay}</h3>
-          <button type="submit" className="btn btn-default" onClick={this.props.reset}>Reset</button>
+        <div className="error-msg">
+          <span>
+            <img src="/sad_bear.svg"/>
+            <h3>{this.state.messageToDisplay}</h3>
+            <button type="submit" className="btn btn-default" onClick={this.props.reset}>Go Back</button>
+          </span>
         </div>
       )`
 
