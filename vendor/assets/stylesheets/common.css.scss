@@ -35,6 +35,7 @@ a {
 
 .navbar-nav > li {
 	margin-top: 10px;
+	float:left;
 }
 
 .navbar {
@@ -43,8 +44,18 @@ a {
 	
 }
 
+.pull-right{
+	position:absolute;
+	top:10px;
+	right:20px;
+	font-size:18px;
+}
+
 .hello {
 	text-align: center;
+	padding:0 20px;
+	max-width: 600px;
+	margin: 0 auto;
 
 	.boom {
 		margin-top: 100px;
@@ -57,8 +68,6 @@ a {
 	}
 	p {
 		display: block;
-		max-width: 600px;
-		margin: 0 auto;
 		font-size: 30px;
 	}
 	p.call-to-action {
@@ -80,35 +89,110 @@ a {
 		}
 
 	}
+
+	@media(max-width:768px){
+		h1{
+			font-size:72px;
+		}
+
+		p{
+			font-size:24px;
+		}
+
+		p.call-to-action a{
+			font-size: 20px;
+		}
+	}
+
+	@media(max-width:500px){
+		h1{
+			font-size:56px;
+		}
+	}
 }
 
 .demo {
 	text-align: center;
-	.slide {
+	.row {
+
+		.container{
+			max-width:1024px;
+			min-height:300px;
+			margin:0 auto;
+			display:flex;
+			flex-direction:row;
+			align-items:flex-end;
+
+			.col{
+				height:100%;
+				display:flex;
+				align-items:center;
+				
+				&.pic{
+					padding-top:30px;
+					align-items:flex-end;
+				}
+			}
+		}
 
 		p {
 			font-size: 36px;
-			vertical-align: middle;
-			padding: 140px 20px 0px;
-
-			@media(max-width:991px){
-				padding-top:60px;
-			}
+			margin:120px 0;
+			width:100%;
+			height:100%;
+			text-align:center;
 		}
-		img {
-			vertical-align: middle;
-			margin-top: 40px;
-			
-			&.img-responsive {
-				max-width: 500px;
-			}
+
+		img{
+			display:block;
+			max-width:100%;
+			width:auto;
+			height:auto;
 		}
 		
 		&.step-2 {
-			background: #53c9ae;
+			background-color: #53c9ae;
+			
+			.pic{
+				order:1;
+			}
+
+			.text{
+				order:2;
+			}
 		}
 		&.step-3 {
-			background: #ff775c;
+			background-color: #ff775c;
+		}
+
+		@media(max-width:650px){
+			.container{
+				height:auto;
+				flex-direction:column;
+
+				.col{
+					width:100%;
+					height:auto;
+
+					&.pic{
+						padding:0;
+					}
+				}
+			}
+
+			p{
+				margin: 50px 20px;
+			}
+
+			&.step-2{
+				.text{
+					order:1;
+				}
+
+				.pic{
+					order:2;
+				}
+			}
 		}
 	}
 	
@@ -124,17 +208,18 @@ a {
 
 .enter-code {
 	text-align: center;
+	padding:0 20px;
 	
 	h1 {
 		margin: 84px 0 34px;
 	}
 	input {
-		font-size: 144px;
+		font-size: 128px;
 		letter-spacing: 20px;
 		height: 195px;
 		width: 650px;
 		color: #666;
-		padding: 0 100px;
+		padding: 0 30px;
 		display: inline-block;
 		text-align: center;
 		font-weight: 600;
@@ -157,6 +242,40 @@ a {
 	}
 	p.ohno {
 		font-size: 14px;
+	}
+
+	@media(max-width:768px){
+		input{
+			font-size:64px;
+			width:400px;
+			height:125px;
+		}
+
+		button{
+			width:250px;
+		}
+
+		p{
+			max-width:400px;
+			margin-left:auto;
+			margin-right:auto;
+		}
+	}
+
+	@media(max-width:450px){
+		input{
+			font-size:36px;
+			width:300px;
+			height:100px;
+		}
+
+		h1{
+			font-size:30px;
+		}
+
+		p{
+			max-width:300px;
+		}
 	}
 }
 
@@ -237,6 +356,7 @@ width: 90%;
 		text-align: right;
 		font-size: 18px;
 		color: #53caaf;
+		padding-right:66px;
 	
 		.domain {
 			font-size: 18px;
