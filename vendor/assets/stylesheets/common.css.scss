@@ -1,5 +1,13 @@
 @import url(https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800,300);
 
+@mixin transition($transition-property, $transition-time, $method) {
+    -webkit-transition: $transition-property $transition-time $method;
+    -moz-transition: $transition-property $transition-time $method;
+    -ms-transition: $transition-property $transition-time $method;
+    -o-transition: $transition-property $transition-time $method;
+    transition: $transition-property $transition-time $method;
+}
+
 body {
 	font-family: 'Open Sans', sans-serif;
 	background: #7e11ff;
@@ -10,9 +18,16 @@ body {
 	margin:0;
 }
 
+.wrapper{
+	margin:100px auto 0 auto;
+	max-width:600px;
+	padding:0 20px;
+}
+
 a {
 	font-size: 16px;
 	color: #fff;
+	@include transition(all,.2s,ease);
 	
 	&:hover {
 		color: #ccc;
@@ -20,17 +35,21 @@ a {
 	}
 }
 
-.navbar-nav > li > a {
-	padding: 10px 20px;
-	&.ghome {
-		font-size: 21px;
-	}
+button{
+	@include transition(all,.2s,ease);
 }
 
-.navbar-nav > li > a:hover {
-	color: #fff;
-	background: rgba(0, 0, 0, .25);
-	border-radius: 12px;
+.ghome {
+	float:left;
+	padding: 10px;
+	margin:10px;
+	font-size: 21px;
+	border-radius:12px;
+
+	&:hover {
+		color: #fff;
+		background: rgba(0, 0, 0, .25);
+	}
 }
 
 .navbar-nav > li {
@@ -41,7 +60,6 @@ a {
 .navbar {
 //	background: rgba(0, 0, 0, .25);
 //	border-bottom: 1px solid #5611a9;
-	
 }
 
 .pull-right{
@@ -70,25 +88,6 @@ a {
 		display: block;
 		font-size: 30px;
 	}
-	p.call-to-action {
-		margin-top: 40px;
-		margin-bottom: 50px;
-		
-		a {
-			background: #53caaf;
-			font-size: 25px;
-			color: #fff;
-			border: none;
-			outline: none;
-			border-radius: 25px;
-			padding: 10px 25px;
-			
-			&:hover {
-				background: #388a77;
-			}
-		}
-
-	}
 
 	@media(max-width:768px){
 		h1{
@@ -98,15 +97,57 @@ a {
 		p{
 			font-size:24px;
 		}
-
-		p.call-to-action a{
-			font-size: 20px;
-		}
 	}
 
 	@media(max-width:500px){
 		h1{
 			font-size:56px;
+		}
+	}
+}
+
+.call-to-action {
+	margin-top: 40px;
+	margin-bottom: 50px;
+	display:flex;
+	flex-direction:row;
+	justify-content:space-between;
+	
+	a {
+		display:block;
+		box-sizing:border-box;
+		background: #53caaf;
+		font-size: 24px;
+		text-align:center;
+		line-height:75px;
+		width:240px;
+		white-space:nowrap;
+		color: #fff;
+		border: none;
+		outline: none;
+		border-radius: 50px;
+		box-shadow:0px 3px 10px rgba(0,0,0,.15);
+
+		&.join{
+			background:#7e11ff;
+			border:solid 2px white;
+
+			&:hover, &:active, &:focus {
+				background: #fff;
+				color:#7e11ff;
+			}
+		}
+		
+		&:hover, &:active, &:focus {
+			background: #388a77;
+			text-decoration:none;
+		}
+	}
+	@media(max-width:768px){
+		flex-direction:column;
+
+		a{
+			margin:10px auto;
 		}
 	}
 }
@@ -129,7 +170,6 @@ a {
 				align-items:center;
 				
 				&.pic{
-					padding-top:30px;
 					align-items:flex-end;
 				}
 			}
@@ -137,10 +177,14 @@ a {
 
 		p {
 			font-size: 36px;
-			margin:120px 0;
+			margin:150px 0;
 			width:100%;
 			height:100%;
 			text-align:center;
+
+			span{
+				white-space:nowrap;
+			}
 		}
 
 		img{
@@ -163,6 +207,10 @@ a {
 		}
 		&.step-3 {
 			background-color: #ff775c;
+
+			.container{
+				align-items:center;
+			}
 		}
 
 		@media(max-width:650px){
@@ -208,10 +256,10 @@ a {
 
 .enter-code {
 	text-align: center;
-	padding:0 20px;
+	padding:0;
 	
 	h1 {
-		margin: 84px 0 34px;
+		margin: 184px 0 34px 0;
 	}
 	input {
 		font-size: 128px;
@@ -239,6 +287,10 @@ a {
 		opacity: .75;
 		color: #fff;
 		margin: 18px 0 60px;
+
+		span{
+			display:inline-block;
+		}
 	}
 	p.ohno {
 		font-size: 14px;
@@ -259,6 +311,7 @@ a {
 			max-width:400px;
 			margin-left:auto;
 			margin-right:auto;
+			font-size:18px;
 		}
 	}
 
@@ -385,12 +438,15 @@ width: 90%;
 		position: relative;
 	
 		a {
-			margin-left: 10px;
 			display: block;
 			color: #fff;
 			margin: 12px 0 -5px 10px;
 			font-size: 27px;
 			font-size: 30px;
+
+			&:first-child{
+				margin-top:0;
+			}
 			
 			&:hover {
 				color: #53caaf;
@@ -429,7 +485,7 @@ width: 90%;
 }
 
 .legal {
-	margin: 200px 0 50px;
+	margin: 100px 0 50px;
 	a {
 		margin: 0 5px 5px;
 		display: inline-block;

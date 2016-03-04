@@ -26,18 +26,7 @@
 
     `(
       <div className='enter-code'>
-        <div className="navbar navbar-collapse">
-          <ul className="nav navbar-nav">
-            <li>
-              <a className="glyphicon glyphicon-menu-left ghome" href="/"></a>
-            </li>
-          </ul>
-          <ul className="nav navbar-nav pull-right">
-            <li>
-              Coming Soon!
-            </li>
-          </ul>
-        </div>
+        <a className="glyphicon glyphicon-menu-left ghome" href="/"></a>
         <div className="row">
           <form>
             <div className="form-group">
@@ -49,11 +38,11 @@
                 className="form-control"
                 onChange={this._formUpdate}
                 />
-              <p>Codes are located at the top of the stream in the app</p>
+              <p><span>Codes are located at the top of&nbsp;</span><span>the stream in the app</span></p>
             </div>
             {errorDisplay}
             <button type="submit" className="btn btn-default" onClick={this._loadHappenings}>Join</button>
-            <p className="ohno">Don't have a code? View one of ours: <strong><a onClick={this._loadDefaultHappening}>8b1t</a></strong></p>
+            <p className="ohno">Don't have a code? View one of ours:&nbsp;<strong><a onClick={this._loadDefaultHappening}>8b1t</a></strong></p>
           </form>
         </div>
       </div>

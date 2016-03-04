@@ -1,16 +1,12 @@
-.navbar.navbar-collapse
-  %ul.nav.navbar-nav.pull-right
-    /%li
-    /  = link_to 'Download', 'http://eightbitstudios.com'
-    %li
-      Coming Soon!
 
 .hello
   =image_tag '/logo-intro.gif', :class=> 'boom center-block'
   %h1 Happenings
   %p The quickest way to privately share what’s going on between friends!
-  %p.call-to-action
-    = link_to 'See What\'s Happening', view_path, :class=> 'btn btn-lg btn-default'
+  .call-to-action
+    %a{:href => "#"}
+      %img{:src => "/comingsoon.svg"}
+    = link_to 'Join a Happening', view_path, :class=> 'join'
 
 .demo
   .row
@@ -22,21 +18,30 @@
   .row.step-2
     .container
       .col.text
-        %p Share the code to invite friends.
+        %p
+          %span Share the code 
+          %span to invite friends.
       .col.pic
         =image_tag '/haps_join.gif'
   .row.step-3
     .container
       .col.text
-        %p Watch along as it all happens!
+        %p
+          %span Watch along as 
+          %span it all happens!
       .col.pic
         =image_tag '/haps_watch.gif'
 
 
+.wrapper
+  .call-to-action
+    %a{:href => "#"}
+      %img{:src => "/comingsoon.svg"}
+    = link_to 'Join a Happening', view_path, :class=> 'join'
+
+
 .legal
   .text-center
-    
-    
     = link_to 'Terms', legal_terms_path
     = link_to 'Privacy', legal_privacy_path
     .small

@@ -52,12 +52,14 @@
         else
           @setState
             displayMessage: true
-            messageToDisplay: "Hang tight, nothing's happening yet."
+            messageToDisplay: "Hang tight, nothing's happening here yet."
+            imageToDisplay: "/step-1.png"
 
       error: (response) =>
         @setState
           displayMessage: true
           messageToDisplay: "Could not find that Happening. Please try again."
+          imageToDisplay: "/sad_bear.svg"
 
   render: ->
     if @state.feed != null
@@ -99,7 +101,7 @@
       `(
         <div className="error-msg">
           <span>
-            <img src="/sad_bear.svg"/>
+            <img src={this.state.imageToDisplay}/>
             <h3>{this.state.messageToDisplay}</h3>
             <button type="submit" className="btn btn-default" onClick={this.props.reset}>Go Back</button>
           </span>
