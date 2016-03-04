@@ -34,7 +34,7 @@
           </ul>
           <ul className="nav navbar-nav pull-right">
             <li>
-              <a href="#">Coming Soon</a>
+              Coming Soon!
             </li>
           </ul>
         </div>

@@ -3,7 +3,7 @@
     /%li
     /  = link_to 'Download', 'http://eightbitstudios.com'
     %li
-      = link_to 'Coming Soon', '#'
+      Coming Soon!
 
 .hello
   =image_tag '/logo-intro.gif', :class=> 'boom center-block'
@@ -13,26 +13,24 @@
     = link_to 'See What\'s Happening', view_path, :class=> 'btn btn-lg btn-default'
 
 .demo
-  .row.slide.cfx.step-1
+  .row
     .container
-      .col-md-6.col-xs-12
+      .col.text
         %p Capture what’s happening.
-      .col-md-6.col-xs-12
-        =image_tag '/haps_capture.gif', :class=> 'img-responsive center-block'
-  .row.slide.step-2
+      .col.pic
+        =image_tag '/haps_capture.gif'
+  .row.step-2
     .container
-      .col-xs-12.hidden-md.hidden-lg
+      .col.text
         %p Share the code to invite friends.
-      .col-md-6.col-xs-12
-        =image_tag '/haps_join.gif', :class=> 'img-responsive center-block'
-      .col-md-6.col-xs-12.hidden-sm.hidden-xs
-        %p Share the code to invite friends.
-  .row.slide.step-3
+      .col.pic
+        =image_tag '/haps_join.gif'
+  .row.step-3
     .container
-      .col-md-6.col-xs-12
+      .col.text
         %p Watch along as it all happens!
-      .col-md-6.col-xs-12
-        =image_tag '/haps_watch.gif', :class=> 'img-responsive center-block'
+      .col.pic
+        =image_tag '/haps_watch.gif'
 
 
 .legal
