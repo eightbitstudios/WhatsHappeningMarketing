@@ -63,7 +63,7 @@
 
   _formUpdate: ->
     @setState
-      happeningCode: ReactDOM.findDOMNode(this.refs.happeningCode).value
+      happeningCode: ReactDOM.findDOMNode(this.refs.happeningCode).value.toLowerCase()
 
   _loadDefaultHappening: ->
     @setState happeningCode: "8b1t"
