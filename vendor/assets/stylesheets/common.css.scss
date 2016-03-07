@@ -321,6 +321,10 @@ button{
 	}
 
 	@media(max-width:768px){
+		h1{
+			margin-top:80px;
+		}
+
 		input{
 			font-size:64px;
 			width:400px;
@@ -364,10 +368,10 @@ button{
 }
 
 .user {
-position: absolute;
-left: 3%;
-top: 3%;
-width: 90%;
+	position: absolute;
+	left: 20px;
+	top: 20px;
+	width: 90%;
 
 	h2 {
 		margin-left: 100px;
@@ -379,13 +383,22 @@ width: 90%;
 		box-shadow: 2px 2px 5px #333;
 		margin-right: 20px;
 	}
+
+	@media(max-width:768px){
+		left:10px;
+		top:10px;
+
+		h2{
+			display:none;
+		}
+	}
 }
 
 .caption {
 	position: absolute;
 	width: 50%;
 	margin-left:-25%;
-	left: 50%;
+	left: 5%;
 	bottom: 3%;
 	text-align: center;
 	
@@ -393,6 +406,15 @@ width: 90%;
 		font-size: 33px;
 		color: #fff;
 		text-shadow: 0px 0px 50px rgba(0, 0, 0, 1);
+	}
+
+	@media(max-width:768px){
+		width:90%;
+		margin-left:0;
+
+		h3{
+			font-size:16px;
+		}
 	}
 }
 
@@ -423,8 +445,8 @@ width: 90%;
 
 .join-settings {
 	position: absolute;
-	right: 3%;
-	top: 3%;
+	right: 20px;
+	top: 20px;
 	width: 50%;
 	z-index: 2;
 	text-shadow: 0px 0px 50px rgba(0, 0, 0, 0.5);
@@ -505,7 +527,40 @@ width: 90%;
 			}
 		}
 	}
+	@media(max-width:768px){
+		right:0;
+		top:10px;
 
+		.join-key {
+			padding-right:50px;
+			padding-top:5px;
+
+			.key{
+				font-size:18px;
+			}
+
+			.domain{
+				font-size:12px;
+				margin-top:5px;
+			}
+		}
+
+		.pull-right{
+			top:0;
+			right:5px;
+		}
+
+		.settings{
+			a{
+				margin-top:5px;
+			}
+			
+			ul{
+				top:60px;
+				right:5px;
+			}
+		}
+	}
 }
 
 .legal {
