@@ -494,7 +494,7 @@ button{
 	}
 
 	.settings {
-		text-align: right;
+		text-align: center;
 		cursor: pointer;
 		position: relative;
 		float:right;
@@ -505,7 +505,7 @@ button{
 			font-size:30px;
 
 			&.btn-menu{
-				font-size: 48px;
+				font-size: 32px;
 				line-height:80px;
 			}
 
