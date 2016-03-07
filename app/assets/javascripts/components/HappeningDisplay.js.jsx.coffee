@@ -71,7 +71,7 @@
       userDisplay = @_userDisplay()
       captionDisplay = @_captionDisplay()
 
-      toggleFullScreenButton = @_toggleFullScreenButton()
+      
 
       `(
         <div id="targetDiv">
@@ -79,9 +79,8 @@
           <div className="vignette-bottom"></div>
 
           <div className="join-settings">
-            <div className="settings pull-right">
-              {toggleFullScreenButton}
-              <a className="glyphicon glyphicon-option-horizontal" aria-hidden="true" onClick={this._toggleSettings}></a>
+            <div className="settings">
+              <a className="glyphicon glyphicon-option-vertical btn-menu" aria-hidden="true" onClick={this._toggleSettings}></a>
               {settingsDisplay}
             </div>
             {happeningInfo}
@@ -140,6 +139,7 @@
       captionText = this._settingButtonText(this.state.showCaptions, "Captions")
       userInfoText = this._settingButtonText(this.state.showUserInfo, "User")
       joinCodeText = this._settingButtonText(this.state.showHapInfo, "Code")
+      toggleFullScreenButton = @_toggleFullScreenButton()
 
       `(
         <div>
@@ -153,8 +153,9 @@
             <li>
               <a onClick={this._toggleSetting.bind(this, "showHapInfo")}>{joinCodeText}</a>
             </li>
-            <li>
-              <a className="glyphicon glyphicon-log-out" aria-hidden="true" onClick={this._reset}>Leave</a>
+            <li className="split-buttons">
+              <a className="glyphicon glyphicon-log-out" aria-hidden="true" onClick={this._reset}></a>
+              {toggleFullScreenButton}
             </li>
           </ul>
         </div>

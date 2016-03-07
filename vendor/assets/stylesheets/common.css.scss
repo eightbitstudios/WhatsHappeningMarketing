@@ -234,7 +234,7 @@ button{
 			}
 		}
 
-		@media(max-width:650px){
+		@media(max-width:768px){
 			.container{
 				height:auto;
 				flex-direction:column;
@@ -343,7 +343,7 @@ button{
 		}
 	}
 
-	@media(max-width:450px){
+	@media(max-width:500px){
 		input{
 			font-size:36px;
 			width:300px;
@@ -374,19 +374,34 @@ button{
 	width: 90%;
 
 	h2 {
-		margin-left: 100px;
+		float:left;
 		font-size: 32px;
+		line-height:80px;
+		margin:0;
 		text-shadow: 0px 0px 50px rgba(0, 0, 0, 0.5);
 	}
 
 	.img-circle {
+		float:left;
 		box-shadow:0px 3px 10px rgba(0,0,0,.5);
 		margin-right: 20px;
 	}
 
 	@media(max-width:768px){
-		left:10px;
-		top:10px;
+		h2{
+			font-size:24px;
+			line-height:60px;
+		}
+
+		.img-circle{
+			width:60px;
+			height:60px;
+		}
+	}
+
+	@media(max-width:500px){
+		left:15px;
+		top:15px;
 
 		h2{
 			display:none;
@@ -396,10 +411,9 @@ button{
 
 .caption {
 	position: absolute;
-	width: 50%;
-	margin-left:-25%;
-	left: 5%;
-	bottom: 3%;
+	bottom:20px;
+	left:100px;
+	right:100px;
 	text-align: center;
 	
 	h3 {
@@ -409,7 +423,8 @@ button{
 	}
 
 	@media(max-width:768px){
-		width:90%;
+		left:20px;
+		right:20px;
 		margin-left:0;
 
 		h3{
@@ -445,7 +460,7 @@ button{
 
 .join-settings {
 	position: absolute;
-	right: 20px;
+	right: 5px;
 	top: 20px;
 	width: 50%;
 	z-index: 2;
@@ -455,7 +470,7 @@ button{
 		text-align: right;
 		font-size: 18px;
 		color: #53caaf;
-		padding-right:66px;
+		float:right;
 	
 		.domain {
 			font-size: 18px;
@@ -482,35 +497,35 @@ button{
 		text-align: right;
 		cursor: pointer;
 		position: relative;
+		float:right;
 	
 		a {
 			display: block;
 			color: #fff;
-			margin: 12px 0 -5px 10px;
-			font-size: 27px;
-			font-size: 30px;
+			font-size:30px;
 
-			&:first-child{
-				margin-top:0;
+			&.btn-menu{
+				font-size: 48px;
+				line-height:80px;
+			}
+
+			&:before{
+				padding:0;
 			}
 			
 			&:hover {
 				color: #53caaf;
-			}
-
-			&.glyphicon:before{
-				padding-right:10px;
-				font-size:80%;
 			}
 		}
 		
 		ul {
 			position: absolute;
 			top: 90px;
-			right: 0;
-    		padding: 10px 15px 15px 15px;
+			right: 20px;
+    		padding: 5px 0 0 0;
     		border-radius: 10px;
     		background-color: #5611a9;
+    		overflow:hidden;
     		box-shadow: 2px 2px 10px rgba(0,0,0,.3);
 		}
 		
@@ -518,49 +533,107 @@ button{
 			list-style-type: none;
 			cursor: pointer;
 			margin: 0;
-			padding: 5px;
+			padding: 5px 20px;
 			white-space:nowrap;
 			
 			a {
 				font-size: 21px;
 				margin:0;
 			}
+
+			&.split-buttons{
+				padding:0;
+				margin-top:5px;
+				text-align:center;
+				height:40px;
+
+				a{
+					width:50%;
+					height:100%;
+					line-height:40px;
+					float:left;
+					background:#53caaf;
+
+					&:first-child{
+						background:#ff775c;
+					}
+
+					&:before{
+						padding:0;
+					}
+
+					&:hover{
+						color:#53caaf;
+						background:#fff;
+
+						&:first-child{
+							color:#ff775c;
+						}
+					}
+				}
+			}
 		}
 	}
+
 	@media(max-width:768px){
-		right:0;
-		top:10px;
+		right:5px;
+		top:15px;
 
 		.join-key {
-			padding-right:50px;
-			padding-top:5px;
-
 			.key{
-				font-size:18px;
+				font-size:24px;
 			}
 
 			.domain{
-				font-size:12px;
-				margin-top:5px;
-			}
-		}
+				font-size:16px;
+				margin-top:0;
 
-		.pull-right{
-			top:0;
-			right:5px;
+				span{
+					display:block;
+
+					&:last-child{
+						font-size:14px;
+					}
+				}
+			}
 		}
 
 		.settings{
-			a{
-				margin-top:5px;
+			a.btn-menu{
+				font-size:36px;
+				line-height:60px;
+				padding-left:5px;
 			}
 			
 			ul{
-				top:60px;
-				right:5px;
+				top:80px;
+				right:10px;
 			}
 		}
 	}
+
+	// @media(max-width:500px){
+	// 	.join-key {
+	// 		.domain{
+	// 			span:last-child{
+	// 				font-size:10px;
+	// 			}
+	// 		}
+	// 	}
+
+	// 	.settings{
+	// 		a.btn-menu{
+	// 			font-size:30px;
+	// 			line-height:40px;
+	// 			padding-left:5px;
+	// 		}
+			
+	// 		ul{
+	// 			top:70px;
+	// 			right:10px;
+	// 		}
+	// 	}
+	// }
 }
 
 .legal {
