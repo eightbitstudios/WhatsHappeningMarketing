@@ -5,8 +5,8 @@
   %h1 Happenings
   %p The quickest way to privately share what’s happening between friends!
   .call-to-action
-    %a{:href => "#"}
-      %img{:src => "/comingsoon.svg"}
+    %a{:href => "https://itunes.apple.com/us/app/happenings-its-whats-happening!/id1086484372?ls=1&mt=8", :target => '_blank'}
+      %img{:src => "/download.svg"}
     = link_to 'Join a Happening', view_path, :class=> 'join'
 
 .demo
@@ -20,7 +20,7 @@
     .container
       .col.text
         %p
-          %span Share the code 
+          %span Share the code
           %span to invite friends.
       .col.pic
         =image_tag '/haps_join.gif'
@@ -28,7 +28,7 @@
     .container
       .col.text
         %p
-          %span Watch along as 
+          %span Watch along as
           %span it all happens!
       .col.pic
         =image_tag '/haps_watch.gif'
@@ -53,6 +53,6 @@
     = link_to 'Terms', legal_terms_path
     = link_to 'Privacy', legal_privacy_path
     .small
-      An 
+      An
       = link_to 'Eight Bit Studios', 'http://eightbitstudios.com'
       Production
