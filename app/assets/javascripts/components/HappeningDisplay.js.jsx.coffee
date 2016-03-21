@@ -36,6 +36,7 @@
     @setState
       displayMessage: false
       messageToDisplay: null
+      imageDisplay: false
 
     url = "https://whatshappening.eightbitstudios.com/api/v1/web_app/feeds/#{this.props.happeningKey}"
 
@@ -52,14 +53,15 @@
         else
           @setState
             displayMessage: true
-            messageToDisplay: "Hang tight, nothing's happening here yet."
-            imageToDisplay: "/step-1.png"
+            messageToDisplay: "Hang\xa0tight,\xa0nothing's happening\xa0here\xa0yet."
+            imageDisplay: false
+            limerickToDisplay: limericks[Math.floor(Math.random() * limericks.length)]
 
       error: (response) =>
         @setState
           displayMessage: true
-          messageToDisplay: "Could not find that Happening. Please try again."
-          imageToDisplay: "/sad_bear.svg"
+          messageToDisplay: "Could\xa0not\xa0find\xa0that\xa0Happening. Please\xa0try\xa0again."
+          imageDisplay: true
 
   render: ->
     if @state.feed != null
@@ -96,11 +98,22 @@
         </div>
       )`
 
-    else if @state.displayMessage == true
+    else if @state.displayMessage == true & @state.imageDisplay == true
       `(
         <div className="error-msg">
           <span>
-            <img src={this.state.imageToDisplay}/>
+            <img src="/sad_bear.svg"/>
+            <h3>{this.state.messageToDisplay}</h3>
+            <button type="submit" className="btn btn-default" onClick={this.props.reset}>Go Back</button>
+          </span>
+        </div>
+      )`
+
+    else if @state.displayMessage == true & @state.imageDisplay == false
+      `(
+        <div className="error-msg">
+          <span>
+            <p id="limerick" dangerouslySetInnerHTML={{__html:this.state.limerickToDisplay}}></p>
             <h3>{this.state.messageToDisplay}</h3>
             <button type="submit" className="btn btn-default" onClick={this.props.reset}>Go Back</button>
           </span>
