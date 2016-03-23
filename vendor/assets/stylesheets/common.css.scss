@@ -453,7 +453,7 @@ button{
 	h3 {
 		font-size: 33px;
 		color: #fff;
-		text-shadow: 0px 0px 50px rgba(0, 0, 0, 1);
+		text-shadow: 0px 0px 30px rgba(0, 0, 0, 1);
 	}
 
 	@media(max-width:768px){
@@ -473,7 +473,7 @@ button{
 	width: 100%;
 	position: absolute;
 	top: 0;
-	height: 20%;
+	height: 250px;
 	background: -moz-linear-gradient(top,  rgba(0,0,0,0.5) 0%, rgba(0,0,0,0) 100%); /* FF3.6-15 */
 	background: -webkit-linear-gradient(top,  rgba(0,0,0,0.5) 0%,rgba(0,0,0,0) 100%); /* Chrome10-25,Safari5.1-6 */
 	background: linear-gradient(to bottom,  rgba(0,0,0,0.5) 0%,rgba(0,0,0,0) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
@@ -484,7 +484,7 @@ button{
 	width: 100%;
 	position: absolute;
 	bottom: 0;
-	height: 20%;
+	height: 250px;
 	background: -moz-linear-gradient(top,  rgba(0,0,0,0) 0%, rgba(0,0,0,1) 100%); /* FF3.6-15 */
 	background: -webkit-linear-gradient(top,  rgba(0,0,0,0) 0%,rgba(0,0,0,1) 100%); /* Chrome10-25,Safari5.1-6 */
 	background: linear-gradient(to bottom,  rgba(0,0,0,0) 0%,rgba(0,0,0,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
@@ -494,7 +494,7 @@ button{
 
 .join-settings {
 	position: absolute;
-	right: 5px;
+	right: 0;
 	top: 20px;
 	width: 50%;
 	z-index: 2;
@@ -539,7 +539,10 @@ button{
 			font-size:30px;
 
 			&.btn-menu{
-				font-size: 32px;
+				display:block;
+				width:50px;
+				height:80px;
+				font-size: 42px;
 				line-height:80px;
 			}
 
@@ -561,47 +564,48 @@ button{
     		background-color: #5611a9;
     		overflow:hidden;
     		box-shadow: 2px 2px 10px rgba(0,0,0,.3);
-		}
 		
-		ul li {
-			list-style-type: none;
-			cursor: pointer;
-			margin: 0;
-			padding: 5px 20px;
-			white-space:nowrap;
-			
-			a {
-				font-size: 21px;
-				margin:0;
-			}
+			li {
+				list-style-type: none;
+				cursor: pointer;
+				margin: 0;
+				white-space:nowrap;
+				
+				a {
+					padding: 5px 20px;
+					font-size: 21px;
+					margin:0;
+				}
 
-			&.split-buttons{
-				padding:0;
-				margin-top:5px;
-				text-align:center;
-				height:40px;
+				&.split-buttons{
+					padding:0;
+					margin-top:5px;
+					text-align:center;
+					height:40px;
 
-				a{
-					width:50%;
-					height:100%;
-					line-height:40px;
-					float:left;
-					background:#53caaf;
-
-					&:first-child{
-						background:#ff775c;
-					}
-
-					&:before{
+					a{
+						width:50%;
+						height:100%;
 						padding:0;
-					}
-
-					&:hover{
-						color:#53caaf;
-						background:#fff;
+						line-height:40px;
+						float:left;
+						background:#53caaf;
 
 						&:first-child{
-							color:#ff775c;
+							background:#ff775c;
+						}
+
+						&:before{
+							padding:0;
+						}
+
+						&:hover{
+							color:#53caaf;
+							background:#fff;
+
+							&:first-child{
+								color:#ff775c;
+							}
 						}
 					}
 				}
@@ -640,7 +644,7 @@ button{
 			}
 			
 			ul{
-				top:80px;
+				top:85px;
 				right:10px;
 			}
 		}
