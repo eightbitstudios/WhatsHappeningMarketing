@@ -61,8 +61,8 @@
         randomize     : false,
         fadeInSpeed   : 1500,
         fadeOutSpeed  : 1500,
-        aniSpeedMin   : 9000,
-        aniSpeedMax   : 15000
+        aniSpeedMin   : 14000,
+        aniSpeedMax   : 17000
       },
       _$viewEl,
       _$parentEl;
@@ -176,6 +176,7 @@
         // assign handlers
         .load(function(){
           if (_cfg.blend==='into'){
+            $(this).addClass('slideshow-transition-image')
             $(this).css({'position':'absolute', 'z-index':'-2'});
             $('#'+_containerId).append(this);
           }
