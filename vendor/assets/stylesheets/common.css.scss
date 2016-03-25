@@ -584,15 +584,22 @@ button{
 					height:40px;
 
 					a{
-						width:50%;
+						width:33.33%;
 						height:100%;
 						padding:0;
 						line-height:40px;
 						float:left;
-						background:#53caaf;
-
-						&:first-child{
+						
+						&#leave{
 							background:#ff775c;
+						}
+
+						&#order{
+							background:#53caaf;
+						}
+
+						&#fullscreen{
+							background:#53caaf;
 						}
 
 						&:before{
@@ -600,11 +607,19 @@ button{
 						}
 
 						&:hover{
-							color:#53caaf;
-							background:#fff;
-
-							&:first-child{
+							&#leave{
 								color:#ff775c;
+								background:#fff;
+							}
+
+							&#order{
+								color:#53caaf;
+								background:#fff;
+							}
+
+							&#fullscreen{
+								color:#53caaf;
+								background:#fff;
 							}
 						}
 					}

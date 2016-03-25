@@ -14,6 +14,8 @@
 
     fullScreen: false
 
+    sortOrder: 'newest'
+
   componentWillMount: ->
     @_loadHappenings()
 
@@ -132,9 +134,9 @@
 
   _toggleFullScreenButton: ->
     if @state.fullScreen == false
-      `<a className="glyphicon glyphicon-fullscreen" aria-hidden="true" onClick={this._launchFullScreen}></a>`
+      `<a className="glyphicon glyphicon-fullscreen" id="fullscreen" aria-hidden="true" title="Enter Fullscreen" onClick={this._launchFullScreen}></a>`
     else
-      `<a className="glyphicon glyphicon-resize-small" aria-hidden="true" onClick={this._exitFullScreen}></a>`
+      `<a className="glyphicon glyphicon-resize-small" id="fullscreen" aria-hidden="true" title="Exit Fullscreen" onClick={this._exitFullScreen}></a>`
 
   _launchFullScreen: ->
     @setState fullScreen: true
@@ -143,6 +145,25 @@
   _exitFullScreen: ->
     @setState fullScreen: false
     exitFullscreen document.documentElement
+
+
+  _toggleSortOrderButton: ->
+    if @state.sortOrder == 'random'
+      `<a className="glyphicon glyphicon-random" id="order" aria-hidden="true" title="Playback Order: Random" onClick={this._setOrderNewestFirst}></a>`
+    else if @state.sortOrder == 'newest'
+      `<a className="glyphicon glyphicon-sort-by-order" id="order" aria-hidden="true" title="Playback Order: Newest First" onClick={this._setOrderOldestFirst}></a>`
+    else
+      `<a className="glyphicon glyphicon-sort-by-order-alt" id="order" aria-hidden="true" title="Playback Order: Oldest First" onClick={this._setOrderRandom}></a>`
+
+  _setOrderNewestFirst: ->
+    @setState sortOrder: 'newest'
+
+  _setOrderOldestFirst: ->
+    @setState sortOrder: 'oldest'
+
+  _setOrderRandom: ->
+    @setState sortOrder: 'random'
+
 
   _toggleSettings: ->
     @setState showSettings: !@state.showSettings
@@ -153,6 +174,7 @@
       userInfoText = this._settingButtonText(this.state.showUserInfo, "User")
       joinCodeText = this._settingButtonText(this.state.showHapInfo, "Code")
       toggleFullScreenButton = @_toggleFullScreenButton()
+      toggleSortOrderButton = @_toggleSortOrderButton()
 
       `(
         <div>
@@ -167,7 +189,8 @@
               <a onClick={this._toggleSetting.bind(this, "showHapInfo")}>{joinCodeText}</a>
             </li>
             <li className="split-buttons">
-              <a className="glyphicon glyphicon-log-out" aria-hidden="true" onClick={this._reset}></a>
+              <a className="glyphicon glyphicon-log-out" id="leave" aria-hidden="true" title="Leave Happening" onClick={this._reset}></a>
+              {toggleSortOrderButton}
               {toggleFullScreenButton}
             </li>
           </ul>
