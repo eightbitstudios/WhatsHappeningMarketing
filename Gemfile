@@ -15,6 +15,7 @@ gem 'uglifier', '>= 1.3.0'
 # MINA DEPLOYMENT GEMS
 gem 'mina'
 gem 'mina-multistage',  require: false
+gem 'mina-unicorn', require: false
 
 group :production, :staging do
   gem 'unicorn-rails'
